@@ -33,19 +33,15 @@ function solution(numbers) {
 
         if (master.numCounts[num] === 1) {
             master.firstNums[num[0]] = master.firstNums[num[0]] || [];
-            if (master.firstNums[num[0]].length === 0 || num === '0') {
-                master.firstNums[num[0]].push(num);
-            } else {
-                let index = master.firstNums[num[0]].length;
-                for (let i = 0; i < master.firstNums[num[0]].length; i++) {
-                    let num2 = master.firstNums[num[0]][i];
-                    if (num + num2 > num2 + num) { //303, 30 -> 30330  >  30303 break;
-                        index = i;
-                        break;
-                    }
+            let index = master.firstNums[num[0]].length;
+            for (let i = 0; i < master.firstNums[num[0]].length; i++) {
+                let num2 = master.firstNums[num[0]][i];
+                if (num + num2 > num2 + num) { //303, 30 -> 30330  >  30303 break;
+                    index = i;
+                    break;
                 }
-                master.firstNums[num[0]].splice(index, 0, num); //배열 중간에 삽입
             }
+            master.firstNums[num[0]].splice(index, 0, num); //배열 중간에 삽입
         }
 
         return master;
