@@ -44,7 +44,7 @@ function solution(numbers) {
                         break;
                     }
                 }
-                master.firstNums[num[0]].splice(index, 0, num);
+                master.firstNums[num[0]].splice(index, 0, num); //배열 중간에 삽입
             }
         }
 
